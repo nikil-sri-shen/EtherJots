@@ -11,27 +11,23 @@ function NotesProvider({ children }) {
     const fetchData = async () => {
       try {
         const account = await web3.eth.getAccounts();
-        console.log(account);
 
         const notesData = await notescontract.methods
           .getUserNotes(account[0])
           .call();
-        console.log(notesData);
 
-        // Ensure titles, contents, and noteIds are arrays
+        //making data into arrays
         const titles = notesData.titles || [];
         const contents = notesData.contents || [];
         const noteIds = notesData.noteIds || [];
 
-        // Zip the arrays to create an array of objects
         const noteArray = titles.map((title, index) => ({
           noteId: parseInt(noteIds[index]),
           title,
           content: contents[index],
-        }));
+        })); //making array of array into array of objects.
 
         setUserNotes(noteArray);
-        console.log(userNotes);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

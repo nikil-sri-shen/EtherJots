@@ -1,4 +1,3 @@
-// NoteDetailsPage.jsx
 import React, { useContext } from "react";
 import { NotesContext } from "./NotesContext";
 import { useParams } from "react-router-dom";
@@ -7,7 +6,6 @@ function NoteDetailsPage() {
   const { userNotes } = useContext(NotesContext);
   const { id, title } = useParams();
 
-  // Find the note with the matching ID and title
   const selectedNote = userNotes.find(
     (note) => note.noteId === parseInt(id, 10) && note.title === title
   );

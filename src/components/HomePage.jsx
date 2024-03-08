@@ -71,7 +71,7 @@ function HomePage() {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-4 p-10 bg-gray-300 mt-8 ml-8 mr-8 h-auto rounded-lg">
+        <div className="grid grid-cols-4 p-10 bg-gray-300 mt-8 ml-8 mr-8 h-auto rounded-lg mb-8">
           {userNotes.map((note) => (
             <div
               key={note.noteId}
@@ -97,7 +97,7 @@ function HomePage() {
       )}
 
       <div
-        className="fixed bottom-4 right-4 bg-white p-2 mr-10 mb-4 rounded-md cursor-pointer flex"
+        className="fixed bottom-4 right-4 bg-black text-white hover:bg-white hover:text-black p-2 mr-10 mb-4 rounded-md cursor-pointer flex hover:scale-105"
         onClick={handleAddClick}
       >
         <svg
@@ -112,12 +112,12 @@ function HomePage() {
             clipRule="evenodd"
           />
         </svg>
-        <span className="text-black text-lg"> Add note</span>
+        <span className="text-lg"> Add note</span>
       </div>
 
       {showAddCard && (
         <div className="fixed inset-0 flex items-center justify-center text-center ">
-          <div className="bg-white p-4 rounded-lg shadow-4xl">
+          <div className="bg-white p-4 rounded-lg shadow-4xl border-4 border-solid border-gray-300">
             <h2 className="text-2xl font-bold mb-4">Add Note</h2>
             <div className="text-lg">
               <input
@@ -125,7 +125,7 @@ function HomePage() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Enter the title..."
-                className="border-2 border-solid rounded-md"
+                className="border-2 border-dashed border-gray-400 hover:border-solid hover:border-gray-600 rounded-md"
               ></input>
               <br></br>
               <br></br>
@@ -135,7 +135,7 @@ function HomePage() {
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 placeholder="Enter the notes..."
-                className="border-2 border-solid rounded-md"
+                className="border-2 border-dashed border-gray-400 hover:border-solid hover:border-gray-600 rounded-md"
               ></textarea>
             </div>
             <button
